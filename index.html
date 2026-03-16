@@ -31,9 +31,25 @@
   </section>
 
   <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: hpg528@york.ac.uk</p>
-  </section>
+  <h2>Contact</h2>
+
+  <form id="contact-form">
+
+    <label>Name</label><br>
+    <input type="text" id="name" required><br><br>
+
+    <label>Email</label><br>
+    <input type="email" id="email" required><br><br>
+
+    <label>Message</label><br>
+    <textarea id="message" required></textarea><br><br>
+
+    <button type="submit">Send Message</button>
+
+    <p id="form-status"></p>
+
+  </form>
+</section>
   
   <section id="production-diary">
   <h2>Production diary – Week 15</h2>
@@ -54,5 +70,44 @@
   <p><strong>What is one concrete improvement you want to make next week?</strong><br>
   Next week I want to add one complete project card with a title, description, and screenshot, and improve the layout using basic CSS.</p>
 </section>
+
+<script>
+
+const SUPABASE_URL = "https://pvwkdmenemapsqzxhwqc.supabase.co";
+const SUPABASE_ANON = "sb_publishable_Vs15YqxsmZj7MZUXtrKL7g_lo-BfA_Z";
+
+document.getElementById("contact-form")
+.addEventListener("submit", async function(event){
+
+event.preventDefault();
+
+const name = document.getElementById("name").value;
+const email = document.getElementById("email").value;
+const message = document.getElementById("message").value;
+
+const response = await fetch(
+`${SUPABASE_URL}/rest/v1/contact_messages`,
+{
+method: "POST",
+headers: {
+"Content-Type": "application/json",
+"apikey": SUPABASE_ANON,
+"Authorization": `Bearer ${SUPABASE_ANON}`
+},
+body: JSON.stringify({name,email,message})
+});
+
+if(response.ok){
+document.getElementById("form-status").textContent =
+"✓ Message sent!";
+}else{
+document.getElementById("form-status").textContent =
+"Something went wrong.";
+}
+
+});
+
+</script>
+
 </body>
 </html>
