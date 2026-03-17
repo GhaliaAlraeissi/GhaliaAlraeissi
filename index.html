@@ -2,53 +2,47 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>My Portfolio</title>
 
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      background-color: #f8fafc;
-      color: #222;
+      background-color: #f5f5f5;
     }
 
     header {
-      background-color: #111827;
-      color: white;
       text-align: center;
-      padding: 25px;
+      padding: 20px;
+      background-color: #333;
+      color: white;
     }
 
     nav {
       text-align: center;
-      background-color: #e5e7eb;
       padding: 10px;
+      background-color: #ddd;
     }
 
     nav a {
-      margin: 0 15px;
+      margin: 0 10px;
       text-decoration: none;
-      color: #111827;
+      color: black;
       font-weight: bold;
     }
 
-    nav a:hover {
-      text-decoration: underline;
-    }
-
     .container {
-      max-width: 900px;
+      max-width: 800px;
       margin: auto;
       padding: 20px;
     }
 
     .card {
       background: white;
-      padding: 20px;
-      margin-bottom: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 5px;
     }
 
     h2 {
@@ -56,24 +50,17 @@
     }
 
     button {
-      background-color: #111827;
+      padding: 8px;
+      background-color: #333;
       color: white;
       border: none;
-      padding: 10px;
-      border-radius: 5px;
       cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #374151;
     }
 
     input, textarea {
       width: 100%;
-      padding: 8px;
+      padding: 6px;
       margin-top: 5px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
     }
   </style>
 
@@ -93,29 +80,34 @@
 
   <div class="container">
 
+    <!-- Tasks -->
     <section id="projects" class="card">
       <h2>Tasks & Projects</h2>
-      <p>Portfolio Website (in progress)</p>
-      <p>More projects coming soon...</p>
+
+      <p><strong>Portfolio Website:</strong> Built using HTML and GitHub Pages.</p>
+
+      <p><strong>GitHub Setup:</strong> Learned how to upload files and commit changes.</p>
+
+      <p><strong>Contact Form:</strong> Connected form to Supabase database.</p>
     </section>
 
+    <!-- Diary -->
     <section id="production-diary" class="card">
       <h2>Production Diary</h2>
+
       <p><strong>Date:</strong> 10 February 2026</p>
 
       <p><strong>What did you build?</strong><br>
-      Created my portfolio website and main sections.</p>
+      Created my portfolio and contact form.</p>
 
-      <p><strong>Biggest challenge?</strong><br>
-      Understanding GitHub commits and file uploads.</p>
+      <p><strong>Challenge:</strong><br>
+      Understanding GitHub and Supabase.</p>
 
-      <p><strong>What did you learn?</strong><br>
-      How HTML structure works and how GitHub Pages hosts websites.</p>
-
-      <p><strong>Next step:</strong><br>
-      Add a full project and improve design with CSS.</p>
+      <p><strong>What I learned:</strong><br>
+      How websites connect to databases.</p>
     </section>
 
+    <!-- Contact -->
     <section id="contact" class="card">
       <h2>Contact</h2>
 
@@ -130,7 +122,7 @@
         <label>Message</label><br>
         <textarea id="message" required></textarea><br><br>
 
-        <button type="submit" id="submit-btn">Send Message</button>
+        <button type="submit">Send</button>
 
         <p id="form-status"></p>
 
@@ -148,48 +140,29 @@
 
       event.preventDefault();
 
-      const name = document.getElementById("name").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const message = document.getElementById("message").value.trim();
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const message = document.getElementById("message").value;
 
-      const btn = document.getElementById("submit-btn");
-      const status = document.getElementById("form-status");
-
-      btn.disabled = true;
-      btn.textContent = "Sending...";
-      status.textContent = "";
-
-      try {
-        const response = await fetch(
-          `${SUPABASE_URL}/rest/v1/contact_messages`,
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              "apikey": SUPABASE_ANON,
-              "Authorization": `Bearer ${SUPABASE_ANON}`,
-              "Prefer": "return=minimal"
-            },
-            body: JSON.stringify({ name, email, message })
-          }
-        );
-
-        if(response.ok){
-          status.textContent = "✓ Message sent!";
-          status.style.color = "green";
-          event.target.reset();
-        } else {
-          status.textContent = "Something went wrong.";
-          status.style.color = "red";
+      const response = await fetch(
+        `${SUPABASE_URL}/rest/v1/contact_messages`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "apikey": SUPABASE_ANON,
+            "Authorization": `Bearer ${SUPABASE_ANON}`
+          },
+          body: JSON.stringify({name,email,message})
         }
+      );
 
-      } catch (error) {
-        status.textContent = "Network error.";
-        status.style.color = "red";
+      if(response.ok){
+        document.getElementById("form-status").textContent = "Message sent!";
+      } else {
+        document.getElementById("form-status").textContent = "Error sending message.";
       }
 
-      btn.disabled = false;
-      btn.textContent = "Send Message";
     });
   </script>
 
