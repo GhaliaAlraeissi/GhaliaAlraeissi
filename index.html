@@ -4,110 +4,194 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Portfolio</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f8fafc;
+      color: #222;
+    }
+
+    header {
+      background-color: #111827;
+      color: white;
+      text-align: center;
+      padding: 25px;
+    }
+
+    nav {
+      text-align: center;
+      background-color: #e5e7eb;
+      padding: 10px;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #111827;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    button {
+      background-color: #111827;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #374151;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+  </style>
+
 </head>
 <body>
-  <h1>My Portfolio</h1>
+
+  <header>
+    <h1>Ghalia's Portfolio</h1>
+    <p>Computer Science Student</p>
+  </header>
 
   <nav>
-    <a href="#about">About</a> |
-    <a href="#projects">Projects</a> |
-    <a href="#skills">Skills</a> |
+    <a href="#projects">Tasks</a> |
+    <a href="#production-diary">Diary</a> |
     <a href="#contact">Contact</a>
   </nav>
 
-  <section id="about">
-    <h2>About</h2>
-    <p>Hello! My name is ghalia. I am studying computer science and I am building my portfolio website.</p>
-  </section>
+  <div class="container">
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <p>Project 1: (add later)</p>
-  </section>
+    <section id="projects" class="card">
+      <h2>Tasks & Projects</h2>
+      <p>Portfolio Website (in progress)</p>
+      <p>More projects coming soon...</p>
+    </section>
 
-  <section id="skills">
-    <h2>Skills</h2>
-    <p>HTML, CSS, GitHub</p>
-  </section>
+    <section id="production-diary" class="card">
+      <h2>Production Diary</h2>
+      <p><strong>Date:</strong> 10 February 2026</p>
 
-  <section id="contact">
-  <h2>Contact</h2>
+      <p><strong>What did you build?</strong><br>
+      Created my portfolio website and main sections.</p>
 
-  <form id="contact-form">
+      <p><strong>Biggest challenge?</strong><br>
+      Understanding GitHub commits and file uploads.</p>
 
-    <label>Name</label><br>
-    <input type="text" id="name" required><br><br>
+      <p><strong>What did you learn?</strong><br>
+      How HTML structure works and how GitHub Pages hosts websites.</p>
 
-    <label>Email</label><br>
-    <input type="email" id="email" required><br><br>
+      <p><strong>Next step:</strong><br>
+      Add a full project and improve design with CSS.</p>
+    </section>
 
-    <label>Message</label><br>
-    <textarea id="message" required></textarea><br><br>
+    <section id="contact" class="card">
+      <h2>Contact</h2>
 
-    <button type="submit">Send Message</button>
+      <form id="contact-form">
 
-    <p id="form-status"></p>
+        <label>Name</label><br>
+        <input type="text" id="name" required><br><br>
 
-  </form>
-</section>
-  
-  <section id="production-diary">
-  <h2>Production diary – Week 15</h2>
-  <p><strong>Date:</strong> 10 February 2026</p>
+        <label>Email</label><br>
+        <input type="email" id="email" required><br><br>
 
-  <p><strong>What did you actually build or change this week?</strong><br>
-  This week I created my GitHub Pages portfolio website and added the main sections like About, Projects, Skills, and Contact.</p>
+        <label>Message</label><br>
+        <textarea id="message" required></textarea><br><br>
 
-  <p><strong>Which achievement are you most proud of so far on your website?</strong><br>
-  I am most proud that I successfully published the website online using GitHub Pages and made the navigation links work.</p>
+        <button type="submit" id="submit-btn">Send Message</button>
 
-  <p><strong>What did you find most challenging?</strong><br>
-  I found it challenging to understand how to upload files correctly and how committing changes works in GitHub.</p>
+        <p id="form-status"></p>
 
-  <p><strong>What did you learn about web development or computer science maths from this work?</strong><br>
-  I learned how HTML sections and links work, and I learned that GitHub Pages hosts a website from my repository.</p>
+      </form>
+    </section>
 
-  <p><strong>What is one concrete improvement you want to make next week?</strong><br>
-  Next week I want to add one complete project card with a title, description, and screenshot, and improve the layout using basic CSS.</p>
-</section>
+  </div>
 
-<script>
+  <script>
+    const SUPABASE_URL = "https://pvwkdmenemapsqzxhwqc.supabase.co";
+    const SUPABASE_ANON = "sb_publishable_Vs15YqxsmZj7MZUXtrKL7g_lo-BfA_Z";
 
-const SUPABASE_URL = "https://pvwkdmenemapsqzxhwqc.supabase.co";
-const SUPABASE_ANON = "sb_publishable_Vs15YqxsmZj7MZUXtrKL7g_lo-BfA_Z";
+    document.getElementById("contact-form")
+    .addEventListener("submit", async function(event){
 
-document.getElementById("contact-form")
-.addEventListener("submit", async function(event){
+      event.preventDefault();
 
-event.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
 
-const name = document.getElementById("name").value;
-const email = document.getElementById("email").value;
-const message = document.getElementById("message").value;
+      const btn = document.getElementById("submit-btn");
+      const status = document.getElementById("form-status");
 
-const response = await fetch(
-`${SUPABASE_URL}/rest/v1/contact_messages`,
-{
-method: "POST",
-headers: {
-"Content-Type": "application/json",
-"apikey": SUPABASE_ANON,
-"Authorization": `Bearer ${SUPABASE_ANON}`
-},
-body: JSON.stringify({name,email,message})
-});
+      btn.disabled = true;
+      btn.textContent = "Sending...";
+      status.textContent = "";
 
-if(response.ok){
-document.getElementById("form-status").textContent =
-"✓ Message sent!";
-}else{
-document.getElementById("form-status").textContent =
-"Something went wrong.";
-}
+      try {
+        const response = await fetch(
+          `${SUPABASE_URL}/rest/v1/contact_messages`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "apikey": SUPABASE_ANON,
+              "Authorization": `Bearer ${SUPABASE_ANON}`,
+              "Prefer": "return=minimal"
+            },
+            body: JSON.stringify({ name, email, message })
+          }
+        );
 
-});
+        if(response.ok){
+          status.textContent = "✓ Message sent!";
+          status.style.color = "green";
+          event.target.reset();
+        } else {
+          status.textContent = "Something went wrong.";
+          status.style.color = "red";
+        }
 
-</script>
+      } catch (error) {
+        status.textContent = "Network error.";
+        status.style.color = "red";
+      }
+
+      btn.disabled = false;
+      btn.textContent = "Send Message";
+    });
+  </script>
 
 </body>
 </html>
