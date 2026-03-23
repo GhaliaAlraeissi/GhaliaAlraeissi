@@ -75,6 +75,17 @@
       border-radius: 4px;
       border: 1px solid #ccc;
     }
+
+    .images {
+      margin-top: 15px;
+      display: flex;
+      gap: 15px;
+    }
+
+    .images img {
+      width: 60px;
+      opacity: 0.8;
+    }
   </style>
 
 </head>
@@ -84,19 +95,38 @@
     <h1>Ghalia's Portfolio</h1>
     <p>Computer Science Student</p>
   </header>
-  
-<section id="about" class="card">
-  <h2>About Me</h2>
 
-  <p>Hello! My name is Ghalia and I am a Computer Science student currently learning web development, including HTML, CSS, and how to build and publish websites using GitHub Pages. I am also exploring how to connect websites to databases using tools like Supabase. Outside of my studies, I enjoy spending my time reading, playing games, and relaxing with music or shows. I like learning new things and improving my skills, and my goal is to continue developing my knowledge and build more advanced and creative projects.</p>
-</section>  
   <nav>
+    <a href="#about">About</a> |
+    <a href="#skills">Skills</a> |
     <a href="#projects">Tasks</a> |
     <a href="#production-diary">Diary</a> |
     <a href="#contact">Contact</a>
   </nav>
 
   <div class="container">
+
+    <!-- About -->
+    <section id="about" class="card">
+      <h2>About Me</h2>
+
+      <p>Hello! My name is Ghalia and I am a Computer Science student at the University of York, currently studying the International Year One programme. I am learning web development, including HTML, CSS, and how to build and publish websites using GitHub Pages. I am also exploring how to connect websites to databases using tools like Supabase. Outside of my studies, I enjoy spending my time reading, playing games, and relaxing with music or shows. I like learning new things and improving my skills, and my goal is to continue developing my knowledge and build more advanced and creative projects.</p>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="card">
+      <h2>Skills</h2>
+
+      <p><strong>HTML:</strong> Building structured web pages</p>
+      <p><strong>CSS:</strong> Styling layouts and improving design</p>
+      <p><strong>GitHub:</strong> Uploading projects and managing code</p>
+      <p><strong>Supabase:</strong> Connecting websites to databases</p>
+
+      <div class="images">
+        <img src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png" alt="robot">
+        <img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png" alt="computer">
+      </div>
+    </section>
 
     <!-- Tasks -->
     <section id="projects" class="card">
