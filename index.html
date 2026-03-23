@@ -86,6 +86,17 @@
       width: 60px;
       opacity: 0.8;
     }
+
+    .project {
+      margin-top: 15px;
+      padding: 15px;
+      background-color: #fdf2f5;
+      border-radius: 6px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
   </style>
 
 </head>
@@ -99,7 +110,7 @@
   <nav>
     <a href="#about">About</a> |
     <a href="#skills">Skills</a> |
-    <a href="#projects">Tasks</a> |
+    <a href="#projects">Projects</a> |
     <a href="#production-diary">Diary</a> |
     <a href="#contact">Contact</a>
   </nav>
@@ -110,6 +121,10 @@
     <section id="about" class="card">
       <h2>About Me</h2>
 
+      <img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png" 
+           alt="profile" 
+           style="width:100px; border-radius:50%; margin-bottom:10px;">
+
       <p>Hello! My name is Ghalia and I am a Computer Science student at the University of York, currently studying the International Year One programme. I am learning web development, including HTML, CSS, and how to build and publish websites using GitHub Pages. I am also exploring how to connect websites to databases using tools like Supabase. Outside of my studies, I enjoy spending my time reading, playing games, and relaxing with music or shows. I like learning new things and improving my skills, and my goal is to continue developing my knowledge and build more advanced and creative projects.</p>
     </section>
 
@@ -117,10 +132,12 @@
     <section id="skills" class="card">
       <h2>Skills</h2>
 
-      <p><strong>HTML:</strong> Building structured web pages</p>
-      <p><strong>CSS:</strong> Styling layouts and improving design</p>
-      <p><strong>GitHub:</strong> Uploading projects and managing code</p>
-      <p><strong>Supabase:</strong> Connecting websites to databases</p>
+      <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>GitHub</li>
+        <li>Supabase</li>
+      </ul>
 
       <div class="images">
         <img src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png" alt="robot">
@@ -128,15 +145,29 @@
       </div>
     </section>
 
-    <!-- Tasks -->
+    <!-- Currently Learning -->
+    <section class="card">
+      <h2>Currently Learning</h2>
+
+      <p>I am currently improving my web development skills by learning more about CSS design, JavaScript, and how to build interactive websites connected to databases.</p>
+    </section>
+
+    <!-- Projects -->
     <section id="projects" class="card">
-      <h2>Tasks & Projects</h2>
+      <h2>Projects</h2>
 
-      <p><strong>Portfolio Website:</strong> Built using HTML and GitHub Pages.</p>
+      <div class="project">
+        <h3>Portfolio Website</h3>
+        <p>This is my personal portfolio website built using HTML and CSS and hosted using GitHub Pages.</p>
+        <p><strong>Technologies:</strong> HTML, CSS, GitHub</p>
+      </div>
 
-      <p><strong>GitHub Setup:</strong> Learned how to upload files and commit changes.</p>
+      <div class="project">
+        <h3>Contact Form with Supabase</h3>
+        <p>I created a contact form that connects to a Supabase database and stores user messages.</p>
+        <p><strong>Technologies:</strong> JavaScript, Supabase</p>
+      </div>
 
-      <p><strong>Contact Form:</strong> Connected form to Supabase database.</p>
     </section>
 
     <!-- Diary -->
@@ -155,7 +186,7 @@
       Understanding how GitHub commits work and how to connect the form to Supabase.</p>
 
       <p><strong>What did you learn?</strong><br>
-      I learned how HTML, CSS, and databases can work together to build a simple web application.</p>
+      I learned how HTML, CSS, and databases can work together to build a simple web application, and I also improved my problem-solving skills by fixing errors in my code.</p>
 
       <p><strong>Next step:</strong><br>
       Add more projects and improve the layout of the website.</p>
