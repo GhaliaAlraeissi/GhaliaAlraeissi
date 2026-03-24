@@ -48,6 +48,11 @@
       margin-bottom: 20px;
       border-radius: 8px;
       border-left: 4px solid #f8cdd3;
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
     }
 
     h2 {
@@ -97,6 +102,10 @@
     ul {
       padding-left: 20px;
     }
+
+    a {
+      color: #d6336c;
+    }
   </style>
 
 </head>
@@ -121,10 +130,6 @@
     <section id="about" class="card">
       <h2>About Me</h2>
 
-      <img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png" 
-           alt="profile" 
-           style="width:100px; border-radius:50%; margin-bottom:10px;">
-
       <p>Hello! My name is Ghalia and I am a Computer Science student at the University of York, currently studying the International Year One programme. I am learning web development, including HTML, CSS, and how to build and publish websites using GitHub Pages. I am also exploring how to connect websites to databases using tools like Supabase. Outside of my studies, I enjoy spending my time reading, playing games, and relaxing with music or shows. I like learning new things and improving my skills, and my goal is to continue developing my knowledge and build more advanced and creative projects.</p>
     </section>
 
@@ -140,15 +145,20 @@
       </ul>
 
       <div class="images">
-        <img src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png" alt="robot">
-        <img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png" alt="computer">
+        <img src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png">
+        <img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png">
       </div>
+    </section>
+
+    <!-- Technologies -->
+    <section class="card">
+      <h2>Technologies Used</h2>
+      <p>HTML, CSS, JavaScript, GitHub Pages, Supabase</p>
     </section>
 
     <!-- Currently Learning -->
     <section class="card">
       <h2>Currently Learning</h2>
-
       <p>I am currently improving my web development skills by learning more about CSS design, JavaScript, and how to build interactive websites connected to databases.</p>
     </section>
 
@@ -160,14 +170,34 @@
         <h3>Portfolio Website</h3>
         <p>This is my personal portfolio website built using HTML and CSS and hosted using GitHub Pages.</p>
         <p><strong>Technologies:</strong> HTML, CSS, GitHub</p>
+
+        <img src="https://via.placeholder.com/600x300" style="width:100%; border-radius:6px; margin-top:10px;">
+
+        <p>
+          <a href="https://github.com/GhaliaAlraeissi/GhaliaAlraeissi">GitHub</a> |
+          <a href="https://ghaliaalraeissi.github.io/GhaliaAlraeissi/">Live Site</a>
+        </p>
       </div>
 
       <div class="project">
         <h3>Contact Form with Supabase</h3>
         <p>I created a contact form that connects to a Supabase database and stores user messages.</p>
         <p><strong>Technologies:</strong> JavaScript, Supabase</p>
+
+        <img src="https://via.placeholder.com/600x300" style="width:100%; border-radius:6px; margin-top:10px;">
+
+        <p>
+          <a href="https://github.com/GhaliaAlraeissi/GhaliaAlraeissi">GitHub</a> |
+          <a href="https://ghaliaalraeissi.github.io/GhaliaAlraeissi/">Live Site</a>
+        </p>
       </div>
 
+    </section>
+
+    <!-- Reflection -->
+    <section class="card">
+      <h2>Reflection</h2>
+      <p>This project helped me understand how front-end and back-end technologies work together. I improved my problem-solving skills by debugging errors and learned how to connect a website to a database. In the future, I would like to improve the design and add more interactive features.</p>
     </section>
 
     <!-- Diary -->
