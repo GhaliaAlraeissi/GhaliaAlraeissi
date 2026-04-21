@@ -2,27 +2,51 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ghalia's Portfolio</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       background-color: #f8fafc;
+      color: #222;
+      line-height: 1.6;
     }
 
     header {
       text-align: center;
-      padding: 25px;
+      padding: 40px 20px;
       background-color: #333;
       color: white;
     }
 
+    header h1 {
+      margin: 0 0 10px;
+      font-size: 3rem;
+    }
+
+    header p {
+      margin: 0;
+      font-size: 1.3rem;
+    }
+
     nav {
       text-align: center;
-      padding: 10px;
+      padding: 15px 10px;
       background-color: #f3f4f6;
+      border-bottom: 1px solid #ddd;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
     nav a {
@@ -30,6 +54,7 @@
       text-decoration: none;
       color: #d6336c;
       font-weight: bold;
+      display: inline-block;
     }
 
     nav a:hover {
@@ -37,18 +62,19 @@
     }
 
     .container {
-      max-width: 800px;
+      max-width: 950px;
       margin: auto;
       padding: 20px;
     }
 
     .card {
       background: white;
-      padding: 20px;
+      padding: 25px;
       margin-bottom: 20px;
-      border-radius: 8px;
-      border-left: 4px solid #f8cdd3;
-      transition: 0.2s;
+      border-radius: 12px;
+      border-left: 5px solid #f8cdd3;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease;
     }
 
     .card:hover {
@@ -58,45 +84,16 @@
     h2 {
       margin-top: 0;
       color: #333;
+      font-size: 2rem;
     }
 
-    button {
-      padding: 8px 12px;
-      background-color: #d6336c;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
+    h3 {
+      margin-top: 0;
+      color: #222;
     }
 
-    button:hover {
-      background-color: #b82c5c;
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 8px;
-      margin-top: 5px;
-      border-radius: 4px;
-      border: 1px solid #ccc;
-    }
-
-    .images {
-      margin-top: 15px;
-      display: flex;
-      gap: 15px;
-    }
-
-    .images img {
-      width: 60px;
-      opacity: 0.8;
-    }
-
-    .project {
-      margin-top: 15px;
-      padding: 15px;
-      background-color: #fdf2f5;
-      border-radius: 6px;
+    p {
+      margin-bottom: 12px;
     }
 
     ul {
@@ -106,8 +103,119 @@
     a {
       color: #d6336c;
     }
-  </style>
 
+    .images {
+      margin-top: 15px;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .images img {
+      width: 70px;
+      height: auto;
+      opacity: 0.9;
+    }
+
+    .project {
+      margin-top: 20px;
+      padding: 20px;
+      background-color: #fdf2f5;
+      border-radius: 10px;
+    }
+
+    .project img {
+      width: 100%;
+      max-width: 100%;
+      border-radius: 8px;
+      margin-top: 12px;
+      border: 1px solid #ddd;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 16px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      font-family: Arial, sans-serif;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    button {
+      padding: 12px 18px;
+      background-color: #d6336c;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #b82c5c;
+    }
+
+    #form-status {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #666;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 30px 15px;
+      }
+
+      header h1 {
+        font-size: 2.2rem;
+      }
+
+      header p {
+        font-size: 1.1rem;
+      }
+
+      nav a {
+        margin: 6px 8px;
+      }
+
+      .container {
+        padding: 12px;
+      }
+
+      .card {
+        padding: 18px;
+      }
+
+      h2 {
+        font-size: 1.8rem;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -126,158 +234,200 @@
 
   <div class="container">
 
-    <!-- About -->
     <section id="about" class="card">
       <h2>About Me</h2>
-
-      <p>Hello! My name is Ghalia and I am a Computer Science student at the University of York, currently studying the International Year One programme. I am learning web development, including HTML, CSS, and how to build and publish websites using GitHub Pages. I am also exploring how to connect websites to databases using tools like Supabase. Outside of my studies, I enjoy spending my time reading, playing games, and relaxing with music or shows. I like learning new things and improving my skills, and my goal is to continue developing my knowledge and build more advanced and creative projects.</p>
+      <p>
+        Hello! My name is Ghalia and I am a Computer Science student at the University of York,
+        currently studying the International Year One programme. I am learning web development,
+        including HTML, CSS, and how to build and publish websites using GitHub Pages.
+      </p>
+      <p>
+        I am also exploring how to connect websites to databases using tools like Supabase.
+        Outside of my studies, I enjoy reading, playing games, and relaxing with music or shows.
+        My goal is to continue developing my knowledge and build more advanced and creative projects.
+      </p>
     </section>
 
-    <!-- Skills -->
     <section id="skills" class="card">
       <h2>Skills</h2>
-
       <ul>
         <li>HTML</li>
         <li>CSS</li>
-        <li>GitHub</li>
+        <li>JavaScript</li>
+        <li>GitHub Pages</li>
         <li>Supabase</li>
       </ul>
 
       <div class="images">
-        <img src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png">
-        <img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png">
+        <img src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png" alt="Robot icon">
+        <img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png" alt="Web development icon">
       </div>
     </section>
 
-    <!-- Technologies -->
     <section class="card">
       <h2>Technologies Used</h2>
       <p>HTML, CSS, JavaScript, GitHub Pages, Supabase</p>
     </section>
 
-    <!-- Currently Learning -->
     <section class="card">
       <h2>Currently Learning</h2>
-      <p>I am currently improving my web development skills by learning more about CSS design, JavaScript, and how to build interactive websites connected to databases.</p>
+      <p>
+        I am currently improving my web development skills by learning more about CSS design,
+        JavaScript, and how to build interactive websites connected to databases.
+      </p>
     </section>
 
-    <!-- Projects -->
     <section id="projects" class="card">
       <h2>Projects</h2>
 
       <div class="project">
         <h3>Portfolio Website</h3>
-        <p>This is my personal portfolio website built using HTML and CSS and hosted using GitHub Pages.</p>
-        <p><strong>Technologies:</strong> HTML, CSS, GitHub</p>
+        <p>
+          This is my personal portfolio website built using HTML, CSS, and JavaScript and hosted
+          using GitHub Pages.
+        </p>
+        <p><strong>Technologies:</strong> HTML, CSS, JavaScript, GitHub Pages</p>
 
-        <img src="https://via.placeholder.com/600x300" style="width:100%; border-radius:6px; margin-top:10px;">
+        <img src="https://via.placeholder.com/900x400?text=Portfolio+Website+Screenshot" alt="Portfolio website screenshot">
 
         <p>
-          <a href="https://github.com/GhaliaAlraeissi/GhaliaAlraeissi">GitHub</a> |
-          <a href="https://ghaliaalraeissi.github.io/GhaliaAlraeissi/">Live Site</a>
+          <a href="https://github.com/GhaliaAlraeissi/GhaliaAlraeissi" target="_blank">GitHub</a> |
+          <a href="https://ghaliaalraeissi.github.io/GhaliaAlraeissi/" target="_blank">Live Site</a>
         </p>
       </div>
 
       <div class="project">
         <h3>Contact Form with Supabase</h3>
-        <p>I created a contact form that connects to a Supabase database and stores user messages.</p>
-        <p><strong>Technologies:</strong> JavaScript, Supabase</p>
+        <p>
+          I created a contact form that connects to a Supabase database and stores user messages.
+        </p>
+        <p><strong>Technologies:</strong> HTML, CSS, JavaScript, Supabase</p>
 
-        <img src="https://via.placeholder.com/600x300" style="width:100%; border-radius:6px; margin-top:10px;">
+        <img src="https://via.placeholder.com/900x400?text=Supabase+Contact+Form+Project" alt="Supabase contact form screenshot">
 
         <p>
-          <a href="https://github.com/GhaliaAlraeissi/GhaliaAlraeissi">GitHub</a> |
-          <a href="https://ghaliaalraeissi.github.io/GhaliaAlraeissi/">Live Site</a>
+          <a href="https://github.com/GhaliaAlraeissi/GhaliaAlraeissi" target="_blank">GitHub</a> |
+          <a href="https://ghaliaalraeissi.github.io/GhaliaAlraeissi/" target="_blank">Live Site</a>
         </p>
       </div>
-
     </section>
 
-    <!-- Reflection -->
     <section class="card">
       <h2>Reflection</h2>
-      <p>This project helped me understand how front-end and back-end technologies work together. I improved my problem-solving skills by debugging errors and learned how to connect a website to a database. In the future, I would like to improve the design and add more interactive features.</p>
+      <p>
+        This project helped me understand how front-end and back-end technologies work together.
+        I improved my problem-solving skills by debugging errors and learned how to connect a
+        website to a database. In the future, I would like to improve the design and add more
+        interactive features.
+      </p>
     </section>
 
-    <!-- Diary -->
     <section id="production-diary" class="card">
       <h2>Production Diary</h2>
 
       <p><strong>Date:</strong> 10 February 2026</p>
 
-      <p><strong>What did you build?</strong><br>
-      This week I created my portfolio website using HTML and added sections for tasks, diary, and contact.</p>
+      <p>
+        <strong>What did you build?</strong><br>
+        This week I created my portfolio website using HTML and added sections for tasks, diary,
+        projects, and contact.
+      </p>
 
-      <p><strong>What did you improve?</strong><br>
-      I styled the website using CSS to make it look cleaner and more structured.</p>
+      <p>
+        <strong>What did you improve?</strong><br>
+        I styled the website using CSS to make it look cleaner, more consistent, and easier to use.
+      </p>
 
-      <p><strong>Biggest challenge?</strong><br>
-      Understanding how GitHub commits work and how to connect the form to Supabase.</p>
+      <p>
+        <strong>Biggest challenge?</strong><br>
+        Understanding how GitHub commits work and how to connect the contact form to Supabase.
+      </p>
 
-      <p><strong>What did you learn?</strong><br>
-      I learned how HTML, CSS, and databases can work together to build a simple web application, and I also improved my problem-solving skills by fixing errors in my code.</p>
+      <p>
+        <strong>What did you learn?</strong><br>
+        I learned how HTML, CSS, JavaScript, and databases can work together to build a simple web
+        application, and I improved my problem-solving skills by fixing errors in my code.
+      </p>
 
-      <p><strong>Next step:</strong><br>
-      Add more projects and improve the layout of the website.</p>
+      <p>
+        <strong>Next step:</strong><br>
+        Add more projects, improve the layout further, and continue developing my web development skills.
+      </p>
     </section>
 
-    <!-- Contact -->
     <section id="contact" class="card">
       <h2>Contact</h2>
 
       <form id="contact-form">
+        <label for="name">Name</label>
+        <input type="text" id="name" required>
 
-        <label>Name</label><br>
-        <input type="text" id="name" required><br><br>
+        <label for="email">Email</label>
+        <input type="email" id="email" required>
 
-        <label>Email</label><br>
-        <input type="email" id="email" required><br><br>
-
-        <label>Message</label><br>
-        <textarea id="message" required></textarea><br><br>
+        <label for="message">Message</label>
+        <textarea id="message" required></textarea>
 
         <button type="submit">Send</button>
-
         <p id="form-status"></p>
-
       </form>
     </section>
 
   </div>
 
+  <footer>
+    <p>© 2026 Ghalia Alraeissi | Portfolio Website</p>
+  </footer>
+
   <script>
     const SUPABASE_URL = "https://pvwkdmenemapsqzxhwqc.supabase.co";
     const SUPABASE_ANON = "sb_publishable_Vs15YqxsmZj7MZUXtrKL7g_lo-BfA_Z";
 
-    document.getElementById("contact-form")
-    .addEventListener("submit", async function(event){
+    const form = document.getElementById("contact-form");
+    const statusMessage = document.getElementById("form-status");
 
+    form.addEventListener("submit", async function (event) {
       event.preventDefault();
 
-      const name = document.getElementById("name").value;
-      const email = document.getElementById("email").value;
-      const message = document.getElementById("message").value;
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
 
-      const response = await fetch(
-        `${SUPABASE_URL}/rest/v1/contact_messages`,
-        {
+      statusMessage.textContent = "Sending...";
+      statusMessage.style.color = "#333";
+
+      try {
+        const response = await fetch(`${SUPABASE_URL}/rest/v1/contact_messages`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
             "apikey": SUPABASE_ANON,
-            "Authorization": `Bearer ${SUPABASE_ANON}`
+            "Authorization": `Bearer ${SUPABASE_ANON}`,
+            "Accept": "application/json",
+            "Prefer": "return=representation"
           },
-          body: JSON.stringify({name,email,message})
+          body: JSON.stringify({
+            name: name,
+            email: email,
+            message: message
+          })
+        });
+
+        if (response.ok) {
+          statusMessage.textContent = "Thank you, your message has been sent.";
+          statusMessage.style.color = "green";
+          form.reset();
+        } else {
+          const errorText = await response.text();
+          console.log("Supabase error:", errorText);
+          statusMessage.textContent = "Error sending message. Please try again.";
+          statusMessage.style.color = "red";
         }
-      );
-
-      if(response.ok){
-        document.getElementById("form-status").textContent = "Message sent!";
-      } else {
-        document.getElementById("form-status").textContent = "Error sending message.";
+      } catch (error) {
+        console.log("Network error:", error);
+        statusMessage.textContent = "Network error. Please try again.";
+        statusMessage.style.color = "red";
       }
-
     });
   </script>
 
