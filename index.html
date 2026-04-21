@@ -379,57 +379,54 @@
     <p>© 2026 Ghalia Alraeissi | Portfolio Website</p>
   </footer>
 
-  <script>
-    const SUPABASE_URL = "https://pvwkdmenemapsqzxhwqc.supabase.co";
-    const SUPABASE_ANON = "sb_publishable_Vs15YqxsmZj7MZUXtrKL7g_lo-BfA_Z";
+ <script>
+  const SUPABASE_URL = "https://pvwkdmenemapsqzxhwqc.supabase.co";
+  const SUPABASE_ANON = "sb_publishable_Vs15YqxsmZj7MZUXtrKL7g_lo-BfA_Z";
 
-    const form = document.getElementById("contact-form");
-    const statusMessage = document.getElementById("form-status");
+  const form = document.getElementById("contact-form");
+  const statusMessage = document.getElementById("form-status");
 
-    form.addEventListener("submit", async function (event) {
-      event.preventDefault();
+  form.addEventListener("submit", async function (event) {
+    event.preventDefault();
 
-      const name = document.getElementById("name").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const message = document.getElementById("message").value.trim();
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
 
-      statusMessage.textContent = "Sending...";
-      statusMessage.style.color = "#333";
+    statusMessage.textContent = "Sending...";
+    statusMessage.style.color = "#333";
 
-      try {
-        const response = await fetch(`${SUPABASE_URL}/rest/v1/contact_messages`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "apikey": SUPABASE_ANON,
-            "Authorization": `Bearer ${SUPABASE_ANON}`,
-            "Accept": "application/json",
-            "Prefer": "return=representation"
-          },
-          body: JSON.stringify({
-            name: name,
-            email: email,
-            message: message
-          })
-        });
+    try {
+      const response = await fetch(`${SUPABASE_URL}/rest/v1/contact_messages`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "apikey": SUPABASE_ANON,
+          "Authorization": `Bearer ${SUPABASE_ANON}`,
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({ name, email, message })
+      });
 
-        if (response.ok) {
-          statusMessage.textContent = "Thank you, your message has been sent.";
-          statusMessage.style.color = "green";
-          form.reset();
-        } else {
-          const errorText = await response.text();
-          console.log("Supabase error:", errorText);
-          statusMessage.textContent = "Error sending message. Please try again.";
-          statusMessage.style.color = "red";
-        }
-      } catch (error) {
-        console.log("Network error:", error);
-        statusMessage.textContent = "Network error. Please try again.";
+      const resultText = await response.text();
+      console.log("Status:", response.status);
+      console.log("Response:", resultText);
+
+      if (response.ok) {
+        statusMessage.textContent = "Thank you, your message has been sent.";
+        statusMessage.style.color = "green";
+        form.reset();
+      } else {
+        statusMessage.textContent = "Error sending message. Please try again.";
         statusMessage.style.color = "red";
       }
-    });
-  </script>
+    } catch (error) {
+      console.log("Network error:", error);
+      statusMessage.textContent = "Network error. Please try again.";
+      statusMessage.style.color = "red";
+    }
+  });
+</script>
 
 </body>
 </html>
